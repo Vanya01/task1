@@ -1,0 +1,42 @@
+.wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.choose{
+    text-align: center;
+    margin-top: 20vh;
+    border-radius: 30px;
+    height: 320px;
+    width: 400px;
+    background-color: bisque;
+}
+
+
+.instruction{
+    justify-content: space-between;
+}
+.instruction>h3{
+    text-align: center;
+}
+.options{
+    text-align: center;
+    padding: 20px 10px 0 20px;
+    font: inherit;
+}
+.options>a{
+    max-width: 80px;
+    text-decoration: none;
+    color: aliceblue;
+    font-size:large;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.options>a:hover{
+    color: crimson;
+    transition: 700ms;
+    cursor: pointer;
+}
+.btn {
+    position: absolute;
+}
