@@ -43,7 +43,7 @@ export default function Cards() {
                         return (
                             value.photos.map(value =>
                                 <div key={value.id} className={'contentWrap'}>
-                                    <Link to={'/home'}>
+                                    <Link to={'/'}>
                                         {/*PHOTOS*/}
                                         <div className={'imgsHere'}>
                                             <img src={value.img_src} alt="Photo"/>
