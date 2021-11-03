@@ -9,7 +9,6 @@ export default function Header() {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const pages = state.pages;
-    const photos = state.photo;
 
     useEffect(() => {
         API_SERVICE(pages).then(value => {
