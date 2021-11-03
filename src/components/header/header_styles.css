@@ -1,28 +1,45 @@
-.container{
+.container {
     width: 1000px;
 }
-.wrapper{
+
+.wrapper {
     background-color: sandybrown;
     height: 100px;
     text-align: center;
 }
-.wrapper>h3{
-    padding-top:30px ;
+
+.wrapper > h3 {
+    padding-top: 30px;
 }
-.btn{
+
+.btn {
     text-decoration: none;
 }
-.filterWrap{
+
+.filterWrap {
     display: flex;
     justify-content: center;
 }
-.filter{
+
+.filter {
     width: 400px;
     margin-top: 100px;
     height: 400px;
     background-color: khaki;
     border-radius: 20px;
 }
-.filter>h4{
+
+.camera {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+    margin-top: 30px;
+}
+
+.camera > h5 {
+    margin-right: 10px;
+}
+
+.filter > h4 {
     padding-top: 30px;
 }

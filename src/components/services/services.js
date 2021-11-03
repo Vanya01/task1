@@ -2,6 +2,12 @@ import axios from "axios";
 
 const API_KEY = 'ulLsiKubPsuwx8eRqDLB5kwVzujizaIhiMTjnsWe';
 
-const API_SERVICE = async () => await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${API_KEY}`);
+const marsDay = (min, max) => {
+    min = Math.ceil(1);
+    max = Math.floor(1000);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-export {API_SERVICE};
+const SERVICE_API = async (pages, sol = marsDay()) => await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&page=${pages}&api_key=${API_KEY}`)
+
+export {SERVICE_API};

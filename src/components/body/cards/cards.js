@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {API_SERVICE} from "../../services/services";
+import {SERVICE_API} from "../../services/services";
 import './cards_styles.css';
 import {Link} from "react-router-dom";
 import {Pagination} from "@material-ui/lab";
@@ -9,24 +9,24 @@ export default function Cards() {
     const state = useSelector(state => state);
     const photos = state.photo;
     const dispatch = useDispatch();
-    const pages = state.pages;
+    const page = state.pages;
     const totalPages = state.totalPages;
     const pageLimit = useState(30);
-    console.log(state.totalPages, 'cardsss')
 
     useEffect(() => {
-        API_SERVICE(pages).then(value => {
+        SERVICE_API(page).then(value => {
             dispatch(
                 {type: "GET_PHOTOS", payload: (value.data)})
             dispatch(
                 {type: "TOTAL_PAGES", payload: (value.data.photos.length)})
         })
-    }, [pages])
+    }, [page])
+
 
     let handleChange = (event, value) => {
         dispatch({type: 'GET_PAGES', payload: (value)});
     }
-    console.log(handleChange)
+
     return (
         <>
             {/* PAGINATION */}

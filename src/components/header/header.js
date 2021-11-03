@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {API_SERVICE} from "../services/services";
+import {SERVICE_API} from "../services/services";
 
 export default function Header() {
     const state = useSelector(state => state);
@@ -11,7 +11,7 @@ export default function Header() {
     const pages = state.pages;
 
     useEffect(() => {
-        API_SERVICE(pages).then(value => {
+        SERVICE_API(pages).then(value => {
             dispatch({
                 type: "GET_PHOTOS", payload: (value.data)
             })
@@ -27,15 +27,23 @@ export default function Header() {
                     <div className={'filter'}>
                         <h4>Choose the settings!</h4>
                         <div className={'itemsWraap'}>
-                            <form>
-                                <input type="text" placeholder={'Camera'}/>
-                            </form>
-                            <form>
-                                <input type="text" placeholder={'Rover'}/>
-                            </form>
-                            <form>
-                                <input type="text" placeholder={'Sol'}/>
-                            </form>
+                            <div className={'camera'}>
+                            <h5> Camera type: </h5><br/>
+                                <input type="radio" name="choice" value="yes" className="label"/>
+                                <label htmlFor="choice-yes">FHAZ</label>
+                                <input type="radio" name="choice" value="no" className="label"/>
+                                <label htmlFor="choice_">RHAZ</label>
+                                <input type="radio" name="choice" value="no" className="label"/>
+                                <label htmlFor="choice_">MAST</label>
+                                <input type="radio" name="choice" value="no" className="label"/>
+                                <label htmlFor="choice_">NAVCAM</label>
+                            </div>
+                            {/*<div className={'rover'}>*/}
+                            {/*    <input type="radio" name="choice" value="yes" id="choice-yes"/>*/}
+                            {/*    <label htmlFor="choice-yes">Yes</label>*/}
+                            {/*    <input type="radio" name="choice" value="no" id="choice-no"/>*/}
+                            {/*    <label htmlFor="choice_">No</label>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>
