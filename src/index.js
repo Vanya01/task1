@@ -11,6 +11,8 @@ let initialState = {
     pages: 1,
     totalPages: 0
 }
+console.log(initialState.totalPages,'infooo')
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case"GET_PHOTOS":
@@ -18,7 +20,7 @@ const reducer = (state = initialState, action) => {
         case "GET_PAGES":
             return {...state, pages: action.payload}
         case "TOTAL_PAGES":
-            return {...state,totalPages: action.payload}
+            return {...state, totalPages: action.payload}
         default:
             return state
     }

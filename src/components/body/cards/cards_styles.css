@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#arrow{
+    font-size: 150%;
+    font-weight: bold;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.outWrap {
+    flex-wrap: wrap;
+    padding: 150px;
+    display: flex;
+}
+.notice{
+    color: crimson;
+    text-align: center;
+    padding-top: 30px;
+}
+.notice:hover{
+    transition: 700ms;
+    color: gold;
+    cursor: pointer;
+}
+
+.title {
+    padding: 10px 20px 20px 20px;
+}
+
+.titleSpan {
+    padding: 10px;
+    width: 50%;
+}
+
+.titleSpan > p {
+    color: orangered;
+    font-size: 110%;
+}
+
+.contentWrap {
+    position: relative;
+    width: 25%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.imgsHere > img {
+    width: 250px;
+    height: 300px;
+}
+
+.imgsHere:hover {
+    transform: scale(0.9);
+    transition: 700ms;
+    cursor: pointer;
+}
+
+.imgsHere:before {
+    position: absolute;
+    width: 78%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 35px;
+    content: '';
+    opacity: 0;
+}
+
+.imgsHere:hover:before {
+    opacity: 1;
+    transition: 500ms;
+}
+
+.wrapTilte, .rover, .spanWrap, .cardFooter {
+    background-color: aliceblue;
+}
+
+.rover {
+    padding: 10px 0;
+    display: flex;
+    font-weight: bolder;
+    color: orangered;
+}
+
+.rover > p {
+    color: black;
+}
+
+.cardFooter {
+    padding: 10px;
+    color: coral;
+    font-weight: bold;
+}
+
+.wrapTilte {
+    font-size: 120%;
+    color: orangered;
+    background-color: aliceblue;
+}
+
+.wrapTilte > h2 {
+    color: black;
+}
+
+.spanWrap {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}

@@ -1,12 +1,6 @@
-// import {useSelector} from "react-redux";
+// import {Link} from "react-router-dom";
 //
 // export default function Body(props) {
-//     let photos = useSelector(({photos}) => photos);
 //
-//
-//     return (
-//         <div className={'wrapper'}>
-//            body component
-//         </div>
-//     )
+//     return
 // }
