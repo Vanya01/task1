@@ -2,7 +2,7 @@ import './header_styles.css';
 import {Link} from "react-router-dom";
 import {Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {SERVICE_API} from "../services/services";
 
 export default function Header() {
@@ -18,6 +18,10 @@ export default function Header() {
         })
     }, [pages])
 
+    const [formData, setFormData] = useState(null);
+
+    const changeForm = (e) => setFormData({...formData, [e.target.name]: e.target.value});
+    const arr = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI'];
 
     return (
         <div className={'wrapper'}>
@@ -27,27 +31,18 @@ export default function Header() {
                     <div className={'filter'}>
                         <h4>Choose the settings!</h4>
                         <div className={'itemsWraap'}>
-                            <div className={'camera'}>
-                            <h5> Camera type: </h5><br/>
-                                <input type="radio" name="choice" value="yes" className="label"/>
-                                <label htmlFor="choice-yes">FHAZ</label>
-                                <input type="radio" name="choice" value="no" className="label"/>
-                                <label htmlFor="choice_">RHAZ</label>
-                                <input type="radio" name="choice" value="no" className="label"/>
-                                <label htmlFor="choice_">MAST</label>
-                                <input type="radio" name="choice" value="no" className="label"/>
-                                <label htmlFor="choice_">NAVCAM</label>
-                            </div>
-                            {/*<div className={'rover'}>*/}
-                            {/*    <input type="radio" name="choice" value="yes" id="choice-yes"/>*/}
-                            {/*    <label htmlFor="choice-yes">Yes</label>*/}
-                            {/*    <input type="radio" name="choice" value="no" id="choice-no"/>*/}
-                            {/*    <label htmlFor="choice_">No</label>*/}
-                            {/*</div>*/}
+                            <form onChange={changeForm}>
+                                <h5> Camera type: </h5>
+                                <select name={'camera'}>
+                                    {
+                                        arr.map(item => <option key={item} value={item}>{item}</option>)
+                                    }
+                                </select>
+                              </form>
                         </div>
                     </div>
                 </div>
-                <Link className={'btn'} to={'/about'}>
+                <Link className={'btn'} to={{pathname:'/about', state:formData}}>
                     <Button color={'primary'}> Load this! </Button>
                 </Link>
             </div>

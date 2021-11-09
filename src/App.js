@@ -13,7 +13,7 @@ function App() {
             <div className="App">
                 <Switch>
                     <Route path={'/'} exact render={() => <Header/>}/>
-                    <Route path={'/about'} render={() => <Cards/>}/>
+                    <Route path={'/about'} component={Cards}/>
                 </Switch>
             </div>
         </BrowserRouter>
