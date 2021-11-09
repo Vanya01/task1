@@ -2,19 +2,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {SERVICE_API} from "../../services/services";
 import './cards_styles.css';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {Pagination} from "@material-ui/lab";
 
-export default function Cards() {
-    const state = useSelector(state => state);
-    const photos = state.photo;
+export default function Cards(props) {
+    const {photo, pages, totalPages} = useSelector(state => state);
+    const photos = photo;
     const dispatch = useDispatch();
-    const page = state.pages;
-    const totalPages = state.totalPages;
+    const page = pages;
+
     const pageLimit = useState(30);
 
+    const { state } = useLocation();
+
     useEffect(() => {
-        SERVICE_API(page).then(value => {
+        SERVICE_API(page, state.camera).then(value => {
             dispatch(
                 {type: "GET_PHOTOS", payload: (value.data)})
             dispatch(
